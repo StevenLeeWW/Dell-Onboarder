@@ -12,6 +12,15 @@ components:
   properties: {}
   name: navbar_links
   layout_properties: {slot: nav-right}
+  components:
+  - name: link_1
+    properties: {}
+    type: Link
+    components:
+    - name: image_1
+      properties: {source: _/theme/userDefault.jpg, height: '30'}
+      type: Image
+      layout_properties: {grid_position: 'XXVJEL,WPRLHY'}
 - name: label_1
   properties: {text: DELL}
   type: Label
