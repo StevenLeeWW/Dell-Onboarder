@@ -18,10 +18,59 @@ components:
     type: Link
     components:
     - name: image_1
-      properties: {source: _/theme/userDefault.jpg, height: '30'}
+      properties: {source: _/theme/userDefault.jpg, height: '35'}
       type: Image
       layout_properties: {grid_position: 'XXVJEL,WPRLHY'}
 - name: label_1
-  properties: {text: DELL}
+  properties: {text: DELL Onboarder}
   type: Label
   layout_properties: {slot: title}
+- name: column_panel_1
+  properties: {}
+  type: ColumnPanel
+  layout_properties: {slot: left-nav}
+  components:
+  - name: link_2
+    properties: {text: Document checklist, icon: 'fa:file'}
+    type: Link
+    layout_properties: {grid_position: 'JMHVWE,ORSWXX'}
+  - name: spacer_1
+    properties: {height: 32}
+    type: Spacer
+    layout_properties: {grid_position: 'SUFLAD,FWDXOD'}
+  - name: link_3
+    properties: {text: Skills, align: center, icon: 'fa:lightbulb-o'}
+    type: Link
+    layout_properties: {grid_position: 'GEXCWI,DDJWOM'}
+  - name: spacer_2
+    properties: {height: 32}
+    type: Spacer
+    layout_properties: {grid_position: 'XJRBGZ,XJUWJG'}
+  - name: link_4
+    properties: {text: Company, align: center, icon: 'fa:building'}
+    type: Link
+    layout_properties: {grid_position: 'PVHVLZ,VFXPTZ'}
+  - name: spacer_3
+    properties: {height: 32}
+    type: Spacer
+    layout_properties: {grid_position: 'XDVWTQ,IUIBSN'}
+  - name: link_5
+    properties: {text: Meeting, icon: 'fa:handshake-o', align: center}
+    type: Link
+    layout_properties: {grid_position: 'IWQIFW,HQKZMB'}
+  - name: spacer_4
+    properties: {height: 32}
+    type: Spacer
+    layout_properties: {grid_position: 'RDEYHS,RSSSLP'}
+  - name: link_6
+    properties: {text: Feedback, align: center, icon: 'fa:commenting'}
+    type: Link
+    layout_properties: {grid_position: 'AESIMO,SCFIQD'}
+  - name: spacer_5
+    properties: {height: 32}
+    type: Spacer
+    layout_properties: {grid_position: 'THCUXF,AAAKXY'}
+  - name: link_7
+    properties: {text: Manager, align: center, icon: 'fa:eye'}
+    type: Link
+    layout_properties: {grid_position: 'FBNAQG,DBOIXV'}

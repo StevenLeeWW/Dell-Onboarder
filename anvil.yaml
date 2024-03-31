@@ -3,6 +3,10 @@ services:
 - source: /runtime/services/tables.yml
   client_config: {}
   server_config: {}
+- source: /runtime/services/anvil/users.yml
+  client_config: {allow_signup: false, enable_automatically: true, use_email: true,
+    confirm_email: true, require_secure_passwords: false}
+  server_config: {user_table: users}
 startup: {type: form, module: Template}
 package_name: Onboarder
 allow_embedding: false
@@ -11,15 +15,122 @@ runtime_options: {version: 2, client_version: '3', server_version: python3-full,
 metadata: {title: Onboarder}
 startup_form: null
 db_schema:
-  employee:
+  users:
     client: none
     server: full
     columns:
-    - name: ID
+    - name: email
+      admin_ui: {order: 0, width: 200}
+      type: string
+    - name: enabled
+      admin_ui: {order: 1, width: 200}
+      type: bool
+    - name: last_login
+      admin_ui: {order: 2, width: 200}
+      type: datetime
+    - name: password_hash
+      admin_ui: {order: 3, width: 200}
+      type: string
+    - name: n_password_failures
+      admin_ui: {order: 4, width: 200}
+      type: number
+    - name: confirmed_email
+      admin_ui: {order: 5, width: 200}
+      type: bool
+    - name: position
+      admin_ui: {width: 200, order: 6}
+      type: string
+    - name: phone
+      admin_ui: {width: 200, order: 7}
+      type: number
+    - name: address
+      admin_ui: {width: 200, order: 8}
+      type: string
+    title: Users
+  files:
+    client: none
+    server: full
+    columns:
+    - name: title
+      admin_ui: {order: 0, width: 200}
+      type: string
+    - name: file
+      admin_ui: {width: 200, order: 1}
+      type: media
+    - name: uploadedBy
+      admin_ui: {width: 200, order: 2}
+      type: link_single
+      target: users
+    - name: uploadedOn
+      admin_ui: {width: 200, order: 3}
+      type: datetime
+    - name: read
+      admin_ui: {width: 200, order: 4}
+      type: bool
+    title: Files
+  commonfiles:
+    client: none
+    server: full
+    columns:
+    - name: title
       admin_ui: {width: 200, order: 0}
       type: string
-    - name: Name
+    - name: file
+      admin_ui: {width: 200, order: 1}
+      type: media
+    - name: uploadedBy
+      admin_ui: {width: 200, order: 2}
+      type: link_single
+      target: users
+    - name: uploadedOn
+      admin_ui: {width: 200, order: 3}
+      type: datetime
+    title: CommonFiles
+  meetings:
+    client: none
+    server: full
+    columns:
+    - name: title
+      admin_ui: {width: 200, order: 0}
+      type: string
+    - name: description
       admin_ui: {width: 200, order: 1}
       type: string
-    title: Employee
+    - name: link
+      admin_ui: {width: 200, order: 2}
+      type: string
+    - name: createdBy
+      admin_ui: {width: 200, order: 3}
+      type: link_single
+      target: users
+    - name: createdFor
+      admin_ui: {width: 200, order: 4}
+      type: link_multiple
+      target: users
+    - name: startDateTime
+      admin_ui: {width: 200, order: 5}
+      type: datetime
+    - name: endDateTime
+      admin_ui: {width: 200, order: 6}
+      type: datetime
+    - name: venue
+      admin_ui: {width: 200, order: 7}
+      type: string
+    title: Meetings
+  feedbacks:
+    client: none
+    server: full
+    columns:
+    - name: comment
+      admin_ui: {width: 200, order: 0}
+      type: string
+    - name: createdBy
+      admin_ui: {width: 200, order: 1}
+      type: link_single
+      target: users
+    - name: createdFor
+      admin_ui: {width: 200, order: 2}
+      type: link_single
+      target: users
+    title: Feedbacks
 renamed: true

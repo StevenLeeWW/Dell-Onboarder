@@ -1,0 +1,20 @@
+container: {type: ColumnPanel}
+components:
+- name: label_greeting
+  properties: {text: 'Good morning, user', role: headline}
+  type: Label
+  layout_properties: {grid_position: 'QTAVRF,MSKFHM', full_width_row: false}
+- name: spacer_1
+  properties: {height: 32}
+  type: Spacer
+  layout_properties: {grid_position: 'JHTKOD,SOCLDB'}
+- name: column_panel_doc
+  properties: {role: elevated-card}
+  type: ColumnPanel
+  layout_properties: {grid_position: 'PIKREM,DWQKGA'}
+  components:
+  - name: label_1
+    properties: {text: Documents, role: title}
+    type: Label
+    layout_properties: {grid_position: 'LFKWJK,XOFOIW'}
+is_package: true
